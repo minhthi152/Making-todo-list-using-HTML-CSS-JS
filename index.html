@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Todo List App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="task-input">
+        <input id = "task-input-content" type="text" placeholder="Add a new task" />
+        <input id = "task-input-date" type="date" placeholder="Add a deadline" />
+      </div>
+      <div class="controls">
+        <div class="filters">
+          <span id="all" class="active">All</span>
+          <span id="pending">Pending</span>
+          <span id="completed">Completed</span>
+        </div>
+        <div>
+          <button class="btn btn-add">Add</button>
+          <button class="btn btn-clear">Clear All</button>
+        </div>
+      </div>
+      <ul class="task-box ">
+        <!--<li class="task">
+                <label for="1">
+                    <input type="checkbox" id="1" />
+                    <p>Renew gym membership</p>
+                    <br>
+                    <p></p>
+                </label>
+                <div class="settings">
+                    <i class="fa fa-gear"></i>
+                    <ul class="task-menu">
+                        <li><i class="fa fa-pencil"></i>Edit</li>
+                        <li><i class="fa fa-remove"></i>Delete</li>
+                    </ul>
+                </div>
+            </li> -->
+      </ul>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
