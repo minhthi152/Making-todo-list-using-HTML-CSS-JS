@@ -12,10 +12,20 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div>
+      <input type="checkbox" class="checkbox" id="setMode" />
+      <label class="label" for="setMode">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <div class="ball"></div>
+      </label>
+    </div>
     <div class="wrapper">
       <div class="task-input">
         <input id = "task-input-content" type="text" placeholder="Add a new task" />
-        <input id = "task-input-date" type="date" placeholder="Add a deadline" />
+        <input id = "task-input-date" placeholder="Deadline" type="text" onfocus="(this.type='date',this.style.color='black')"
+        
+        />
       </div>
       <div class="controls">
         <div class="filters">

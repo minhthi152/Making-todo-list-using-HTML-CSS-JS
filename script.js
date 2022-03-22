@@ -45,6 +45,7 @@ document.querySelector(".btn-add").addEventListener("click", function addTodo() 
 
 
 function showTodo(filter) {
+    document.querySelector("#task-input-date").type = "text";
     let htmls = "";
     if(arrList){
         arrList.forEach((item, index) => {
@@ -168,3 +169,16 @@ clearAll.addEventListener("click", function(){
       
 })
 // End todo list
+// js for the button set mode
+const setMode = document.getElementById('setMode');
+
+setMode.addEventListener('change', () => {
+	document.body.classList.toggle('light');
+    document.querySelector(".wrapper").classList.toggle('light');
+    // document.querySelector(".controls").classList.toggle('light');
+    // document.querySelectorAll('span').classList.add('light');
+    // let spans = document.querySelectorAll("span");
+    // for (const span of spans) {
+    //     span.classList.toggle("light");
+    // }
+});
