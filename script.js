@@ -52,8 +52,8 @@ function showTodo(filter) {
             // If todo status is completed, set the isCompleted value to checked
             let isCompleted = item.status == "completed" ? "checked": "";
             if(filter == item.status || filter == "all"){
-                htmls +=  `<li class="task">
-                <label for="${index}">
+                htmls +=  `<li class="task" draggable="true" ondragstart = "dragStart(event,${index})"   id = ${index}>
+                <label for="${index}" class = "draggable" ondragover="allowDrop(event)" ondrop="dragDrop(event,${index})">
                     <input onclick = "updateStatus(this)" type="checkbox" index="${index}" ${isCompleted}>
                     <div>
                         <span class ="taskContent">${item.name}</span> 
@@ -120,9 +120,13 @@ function showMenu(selectedTask){
 function deleteTask(deleteIndex){
     let filter = document.querySelector(".filters span.active").id;
     // console.log(deleteIndex);
-    arrList.splice(deleteIndex,1);
-    localStorage.setItem("todo", JSON.stringify(arrList));
-    showTodo(filter);
+    let conf = confirm("Are you sure you want to delete this task?");
+    if (conf){
+        arrList.splice(deleteIndex,1);
+        localStorage.setItem("todo", JSON.stringify(arrList));
+        showTodo(filter);
+    }
+    
 
 }
  
@@ -182,3 +186,43 @@ setMode.addEventListener('change', () => {
     //     span.classList.toggle("light");
     // }
 });
+// Drag and drop task
+
+function dragStart(ev,indexDrag){
+    // dragStartIndex = this.closest('li').getAttribute('id');
+    ev.dataTransfer.setData("dragIndex", indexDrag);
+
+};
+
+function dragOver(e){
+    e.preventDefault();
+};
+function dragDrop(ev,index){
+    ev.preventDefault();
+// const dragEndIndex = this.getAttribute('id');
+//   swapItems(dragStartIndex, dragEndIndex);
+//   this.classList.remove('over');
+let temp;
+let indexDrag =  ev.dataTransfer.getData("dragIndex");
+if (indexDrag != index) {
+    let filter = document.querySelector(".filters span.active").id;
+    temp = {...arrList[index]};
+    arrList[index] = {...arrList[indexDrag]};
+    console.log(arrList[indexDrag])
+    arrList[indexDrag]= temp;
+    showTodo(filter);
+    // console.log(arrList);
+}
+console.log(indexDrag);
+};
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+
+
+
+
+
+
+

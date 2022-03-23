@@ -64,7 +64,7 @@ cursor: pointer;
 .filters span.active{
     color: #40739e;
     background-color: #bfd8ec;
-    padding: 4px 5px;
+    padding: 5px 10px;
     border-radius: 4px;
 }
 .filters span:first-child{
@@ -211,6 +211,10 @@ body.light {
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
 }
+.task-menu{
+    color: rgb(100, 98, 98);
+}
+
 
 .checkbox:checked + .label .ball {
 	transform: translateX(24px);
@@ -221,4 +225,3 @@ body.light {
 .light{
     color:#f1f1f1;
 }
-
