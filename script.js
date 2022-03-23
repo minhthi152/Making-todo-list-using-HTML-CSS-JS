@@ -1,4 +1,4 @@
-// Start coding on todo list 
+// ###WORKING ON TO DO LIST 
 let arrList;
 let dataTodo = localStorage.getItem("todo");
 if (dataTodo) {
@@ -38,11 +38,7 @@ document.querySelector(".btn-add").addEventListener("click", function addTodo() 
 
         alert("Please enter task name!")
     }
-
-
 });
-
-
 
 function showTodo(filter) {
     document.querySelector("#task-input-date").type = "text";
@@ -52,8 +48,8 @@ function showTodo(filter) {
             // If todo status is completed, set the isCompleted value to checked
             let isCompleted = item.status == "completed" ? "checked": "";
             if(filter == item.status || filter == "all"){
-                htmls +=  `<li class="task" draggable="true" ondragstart = "dragStart(event,${index})"   id = ${index}>
-                <label for="${index}" class = "draggable" ondragover="allowDrop(event)" ondrop="dragDrop(event,${index})">
+                htmls +=  `<li class="task" draggable="true" ondragstart = "dragStart(event,${index})" ondragover="allowDrop(event)" ondrop="dragDrop(event,${index})" id = ${index}>
+                <label for="${index}" class = "draggable" >
                     <input onclick = "updateStatus(this)" type="checkbox" index="${index}" ${isCompleted}>
                     <div>
                         <span class ="taskContent">${item.name}</span> 
@@ -186,7 +182,8 @@ setMode.addEventListener('change', () => {
     //     span.classList.toggle("light");
     // }
 });
-// Drag and drop task
+
+// ###DRAG AND DROP TASK
 
 function dragStart(ev,indexDrag){
     // dragStartIndex = this.closest('li').getAttribute('id');
@@ -194,22 +191,19 @@ function dragStart(ev,indexDrag){
 
 };
 
-function dragOver(e){
-    e.preventDefault();
-};
-function dragDrop(ev,index){
-    ev.preventDefault();
+
+function dragDrop(ev,indexDrop){
 // const dragEndIndex = this.getAttribute('id');
 //   swapItems(dragStartIndex, dragEndIndex);
 //   this.classList.remove('over');
 let temp;
 let indexDrag =  ev.dataTransfer.getData("dragIndex");
-if (indexDrag != index) {
+if (indexDrag != indexDrop) {
     let filter = document.querySelector(".filters span.active").id;
-    temp = {...arrList[index]};
-    arrList[index] = {...arrList[indexDrag]};
+    temp = arrList[indexDrag];
+    arrList[indexDrag] = arrList[indexDrop];
     console.log(arrList[indexDrag])
-    arrList[indexDrag]= temp;
+    arrList[indexDrop]= temp;
     showTodo(filter);
     // console.log(arrList);
 }
