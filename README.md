@@ -1,6 +1,6 @@
 # Build Todo list page
 ## Link sản phẩm cuối cùng
-+ https://minhthi152.github.io/Making-todo-list-using-HTML-CSS-JS/
++ https://minhthi152.github.io/Simple-todo-list/
 ## Sử dụng các kiến thức của module 1
 1. Làm theo template: https://www.youtube.com/watch?v=2QIMUBilooc&t=2313s
 2. HTML
