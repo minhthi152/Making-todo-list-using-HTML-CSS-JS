@@ -2,10 +2,9 @@
 ## Link sản phẩm cuối cùng
 + https://minhthi152.github.io/Simple-todo-list/
 ## Sử dụng các kiến thức của module 1
-1. Làm theo template: https://www.youtube.com/watch?v=2QIMUBilooc&t=2313s
-2. HTML
-3. CSS
-4. JavaScript
+1. HTML
+2. CSS
+3. JavaScript
 + Kiến thức mảng
 + Các phương thức trên mảng (splice, filter, push)
 + Đối tượng (Class, contructor)
